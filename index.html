@@ -121,6 +121,24 @@
 			  (symbolCheckEl.checked ? 35 : 0));
 		
 				securityIndicatorBarEl.style.width = porcent + '%';
+				if(porcent > 69){
+					securityIndicatorBarEl.classList.add('safe');
+					securityIndicatorBarEl.classList.remove('warning');
+					securityIndicatorBarEl.classList.remove('critical');
+				}else if(porcent > 50){
+					securityIndicatorBarEl.classList.remove('safe');
+					securityIndicatorBarEl.classList.add('warning');
+					securityIndicatorBarEl.classList.remove('critical');
+				}else{
+					securityIndicatorBarEl.classList.remove('safe');
+					securityIndicatorBarEl.classList.remove('warning');
+					securityIndicatorBarEl.classList.add('critical');
+				}
+
+
+				porcent>=100 
+				? securityIndicatorBarEl.classList.add('completed') 
+				: securityIndicatorBarEl.classList.remove('completed');
 		}
 
 		function copy() {
